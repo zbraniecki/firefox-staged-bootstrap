@@ -18,7 +18,6 @@ function callAfterStarted() {
   console.log("callAfterStarted");
 }
 
-// and injecting after the stage is completed?
 async function callAfterStarted2() {
   await delay(1000);
   console.log("callAfterStarted2");
@@ -26,6 +25,12 @@ async function callAfterStarted2() {
 
 function callAfterStarted3() {
   console.log("callAfterStarted3");
+  aLongTaskWithoutBlockingBootstrap();
+}
+
+async function aLongTaskWithoutBlockingBootstrap() {
+  await delay(5000);
+  console.log("aLongTaskWithoutBlockingBootstrap");
 }
 
 async function callAfterInitialized() {
