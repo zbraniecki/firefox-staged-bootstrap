@@ -24,9 +24,9 @@ class BootstrapStage {
     // with ability for new tasks to be scheduled
     // from within of the current batch.
     while (this.tasks.size) {
-      let currentTasks = Array.from(this.tasks);
+      let currentBatch = Array.from(this.tasks);
       this.tasks.clear();
-      await Promise.all(currentTasks.map(async item => {
+      await Promise.all(currentBatch.map(async item => {
         const taskName = `${stageName}-${item.name}`;
         this.taskLog.add(taskName);
         performance.mark(`${taskName}-start`);
